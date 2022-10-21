@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #088DA5;
+  --primary-color: #DA2559;
   --font-color: white;
 }
 
@@ -11,14 +11,14 @@ body {
   margin: 0;
   min-height: 100vh;
   background-color: #fbfbfb;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23e42929' fill-opacity='0.2'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+background-image: url("data:image/svg+xml,%3Csvg width='70' height='70' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2325daa6' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E");
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: Helvetica, sans-serif;
 }
 
-.fas {
+.fa-solid {
   color: var(--font-color);
   font-size: 35px;
 }
@@ -43,7 +43,6 @@ video {
 .show-controls {
   width: 100%;
   height: 30%;
-  background: dodgerblue;
   z-index: 2;
   position: absolute;
   bottom: 0;
@@ -61,7 +60,13 @@ video {
   z-index: 5;
   display: flex;
   justify-content: space-between;
+  opacity: 0;
+  transition: all 0.5s ease-out 2s;
+}
 
+.show-controls:hover .controls-container{
+  opacity: 1;
+  transition: all 0.2s ease-out;
 }
 
 
@@ -84,21 +89,27 @@ video {
 
 /* Progress Bar */
 .progress-range {
-
+  height: 8px;
+  width: calc(100% - 30px);
+  background: rgba(202, 202, 202, 0.5);
   margin: auto;
   border-radius: 10px;
   position: absolute;
   left: 15px;
   top: 15px;
   cursor: pointer;
+  transition: height 0.1s ease-in-out;
+}
 
+.progress-range:hover{
+  height: 10px;
 }
 
 
 
 .progress-bar {
   background: var(--primary-color);
-  width: 50%;
+  width: 10%;
   height: 100%;
   border-radius: 10px;
   transition: all 0.5s ease;
@@ -167,10 +178,13 @@ video {
   margin-right: 15px;
 }
 
-
+select,
+option {
+  cursor: pointer;
+}
 
 select {
-
+  background: transparent;
   color: var(--font-color);
   border: none;
   font-size: 18px;
@@ -179,7 +193,9 @@ select {
   border-radius: 5px;
 }
 
-
+select:focus {
+  outline: none;
+}
 
 select > option {
   background: rgba(0, 0, 0, 0.9);
@@ -213,7 +229,7 @@ select > option {
     max-width: 95vw;
   }
 
-  .fas {
+  .fa-solid {
     font-size: 20px;
   }
 
